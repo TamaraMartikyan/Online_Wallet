@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Online Wallet Register</title>
+  <style>
+    body {
+      display: flex;
+      height: 100vh;
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #FFE4C4;
+      justify-content: center;
+      align-items: center;
+    }
+    .register-container {
+      background: white;
+      padding: 30px 40px;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      width: 340px;
+      text-align: center;
+    }
+    h1 {
+      margin-bottom: 24px;
+      color: #FF7F50;
+    }
+    input[type="text"], input[type="password"] {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 16px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 16px;
+      box-sizing: border-box;
+      transition: border-color 0.3s;
+    }
+    input:focus {
+      border-color: #800000;
+      outline: none;
+    }
+    button {
+      width: 100%;
+      padding: 12px;
+      background-color: #FF7F50;
+      border: none;
+      border-radius: 6px;
+      color: white;
+      font-size: 18px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    button:hover {
+      background-color: #DEB887;
+    }
+    #message {
+      margin-top: 16px;
+      font-weight: bold;
+      min-height: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="register-container">
+    <h1>Register Account</h1>
+
+    <form id="registerForm">
+      <input type="text" id="username" placeholder="Username" required />
+      <input type="password" id="password" placeholder="Password" required />
+      <input type="password" id="confirmPassword" placeholder="Confirm Password" required />
+      <button type="submit">Register</button>
+    </form>
+
+    <p id="message"></p>
+  </div>
+
+  <script>
+    const form = document.getElementById('registerForm');
+    const message = document.getElementById('message');
+
+    form.onsubmit = function(e) {
+      e.preventDefault();
+
+      const username = document.getElementById('username').value.trim();
+      const password = document.getElementById('password').value.trim();
+      const confirm = document.getElementById('confirmPassword').value.trim();
+
+      if (!username || !password || !confirm) {
+        message.style.color = 'red';
+        message.textContent = 'Fill in all fields';
+        return;
+      }
+
+      if (password !== confirm) {
+        message.style.color = 'red';
+        message.textContent = 'Passwords do not match';
+        return;
+      }
+
+      if (username.length < 4 || password.length < 4) {
+        message.style.color = 'red';
+        message.textContent = 'Username and password must be at least 4 characters';
+        return;
+      }
+
+    
+      message.style.color = 'green';
+      message.textContent = 'Registration successful!';
+    };
+  </script>
+</body>
+</html>
