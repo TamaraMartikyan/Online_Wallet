@@ -10,7 +10,7 @@
       height: 100vh;
       margin: 0;
       font-family: Arial, sans-serif;
-      background: #FAFAD2;
+      background: #FFE4C4;
       justify-content: center;
       align-items: center;
     }
@@ -24,7 +24,7 @@
     }
     h1 {
       margin-bottom: 24px;
-      color: #800000;
+      color: #FF7F50;
     }
     input[type="text"], input[type="password"] {
       width: 100%;
